@@ -1,11 +1,12 @@
-#include <cmath>
-#include <cstdio>
+/**
+ * Knuth-Morris-Pratt algorithm for string pattern-matching
+ */
+
 #include <vector>
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
-vector<int> buildlcp(string p) {
+vector<int> buildlcp(string &p) {
     int m = p.length();
     vector<int> lcp(m);
     int i = 1, k = 0;
@@ -24,7 +25,7 @@ vector<int> buildlcp(string p) {
     return lcp;
 }
 
-int kmp(string s, string p) {
+int kmp(string &s, string &p) {
     int n = s.length(), m = p.length();
     vector<int> lcp = buildlcp(p);
     int i = 0, j = 0, res = 0;
@@ -45,6 +46,13 @@ int kmp(string s, string p) {
     return res;
 }
 
+/**
+ * Example usage
+ */
 int main() {
+    ios::sync_with_stdio(false);
+    string s = "abcababaaacdaabcab";
+    string p = "ab";
+    cout << "'" << p << "' occurs in '" << s << "' " << kmp(s, p) << " times\n";
     return 0;
 }

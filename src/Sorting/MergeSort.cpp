@@ -1,5 +1,8 @@
+/**
+ * Merge sort
+ */
+
 #include <iostream>
-#include <cstdio>
 #include <vector>
 using namespace std;
 
@@ -57,28 +60,26 @@ void mergeSort(vector<T> &arr, int lo, int hi) {
 
 template <class T>
 void printVector(vector<T> &arr) {
-    cout << "{ ";
     for (auto const &x : arr) {
         cout << x << " ";
     }
-    cout << "}" << endl;
+    cout << "\n";
 }
 
-template <class T>
-void runTest(vector<T> arr) {
-    printVector(arr);
-    mergeSort(arr, 0, arr.size()-1);
-    printVector(arr);
-    cout << endl;
-}
-
+/**
+ * Example usage
+ */
 int main() {
     vector<int> t1 = { 9, 4, 6, 2, 1, 5, 8, 0, 3, 7 };
     vector<double> t2 = { 1.1, 4, 3.14159, -2.4, -1, 10 };
     vector<char> t3 = { 'B', 'a', 't', 'm', 'a', 'n' };
 
-    runTest(t1);
-    runTest(t2);
-    runTest(t3);
+    mergeSort(t1, 0, t1.size()-1);
+    mergeSort(t2, 0, t2.size()-1);
+    mergeSort(t3, 0, t3.size()-1);
+
+    printVector(t1);
+    printVector(t2);
+    printVector(t3);
     return 0;
 }

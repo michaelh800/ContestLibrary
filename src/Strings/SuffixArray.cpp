@@ -1,5 +1,7 @@
-#include <cmath>
-#include <cstdio>
+/**
+ * Suffix array in O(n*logn) and LCP array in O(n)
+ */
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -56,25 +58,23 @@ namespace SuffixArray {
     }
 } // end namespace SuffixArray
 
-
+/**
+ * Example usage
+ */
 int main() {
     ios::sync_with_stdio(false);
-    int t;
-    cin >> t;
-    while (t--) {
-        cin >> SuffixArray::S;
-        SuffixArray::buildSA();
-        SuffixArray::buildLCP();
-        vector<int> sa = SuffixArray::sa;
-        for (const int &i : sa) {
-            cout << i << " ";
-        }
-        cout << endl;
-        vector<int> lcp = SuffixArray::lcp;
-        for (const int &i : lcp) {
-            cout << i << " ";
-        }
-        cout << endl;
+    SuffixArray::S = "abracadabra0AbRa4Cad14abra";
+    SuffixArray::buildSA();
+    SuffixArray::buildLCP();
+
+    for (const int &i : SuffixArray::sa) {
+        cout << i << " ";
     }
+    cout << "\n";
+
+    for (const int &i : SuffixArray::lcp) {
+        cout << i << " ";
+    }
+    cout << "\n";
     return 0;
 }
