@@ -60,7 +60,7 @@ void mergeSort(vector<T> &arr, int lo, int hi) {
 
 template <class T>
 void printVector(vector<T> &arr) {
-    for (auto const &x : arr) {
+    for (const T &x : arr) {
         cout << x << " ";
     }
     cout << "\n";
@@ -70,6 +70,7 @@ void printVector(vector<T> &arr) {
  * Example usage
  */
 int main() {
+    ios::sync_with_stdio(false);
     vector<int> t1 = { 9, 4, 6, 2, 1, 5, 8, 0, 3, 7 };
     vector<double> t2 = { 1.1, 4, 3.14159, -2.4, -1, 10 };
     vector<char> t3 = { 'B', 'a', 't', 'm', 'a', 'n' };
