@@ -53,7 +53,8 @@ int main() {
     string s = "banana";
     PalindromeTree::buildPT(s);
     vector<int> pt = PalindromeTree::len;
-    for (int i=2; i<pt.size(); i++) {
+    int sz = PalindromeTree::sz;
+    for (int i=2; i<sz; i++) {
         cout << s.substr(i - pt[i] - 1, pt[i]) << "\n";
     }
     return 0;
