@@ -2,7 +2,7 @@
  * Suffix array in O(n*logn) and LCP array in O(n)
  */
 
-// Note: Tweaked from mukel's O(n*logn*logn) implementation
+// Tweaked from O(n*logn*logn) implementation by mukel
 
 #include <vector>
 #include <iostream>

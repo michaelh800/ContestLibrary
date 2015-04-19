@@ -1,6 +1,8 @@
 /**
- * Palindrome Tree
+ * Palindrome Tree O(n)
  */
+
+// Slightly tweaked from implementation by Дерево Палиндромов
 
 #include <algorithm>
 #include <iostream>
