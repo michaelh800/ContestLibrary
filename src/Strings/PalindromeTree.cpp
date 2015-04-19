@@ -36,6 +36,7 @@ namespace PalindromeTree {
         to = vector<vector<int>>(m+1);
         for (auto &v : to) v = vector<int>(sigma);
 
+        n = 0;
         s[n++] = -1;
         link[0] = 1;
         len[1] = -1;
