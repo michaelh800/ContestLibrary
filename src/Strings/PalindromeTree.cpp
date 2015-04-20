@@ -2,7 +2,8 @@
  * Palindrome Tree O(n)
  */
 
-// Slightly tweaked from implementation by Дерево Палиндромов
+// http://adilet.org/blog/25-09-14/
+// http://ideone.com/YQX9jv
 
 #include <algorithm>
 #include <iostream>
@@ -15,7 +16,7 @@ namespace PalindromeTree {
     int n, last, sz;
 
     int getLink(int v) {
-        while(s[n - len[v] - 2] != s[n - 1]) v = link[v];
+        while(s[n-len[v]-2] != s[n-1]) v = link[v];
         return v;
     }
 
@@ -34,14 +35,16 @@ namespace PalindromeTree {
         int m = str.length() + 1;
         s = vector<int>(m), len = link = vector<int>(m+1);
         to = vector<vector<int>>(m+1);
-        for (auto &v : to) v = vector<int>(sigma);
+        for (auto &v : to)
+            v = vector<int>(sigma);
 
         n = 0;
         s[n++] = -1;
         link[0] = 1;
         len[1] = -1;
         sz = 2;
-        for (int i=1; i<m; i++) addLetter(str[i - 1] - base);
+        for (int i=1; i<m; i++)
+            addLetter(str[i - 1] - base);
     }
 }
 

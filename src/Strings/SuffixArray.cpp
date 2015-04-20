@@ -1,12 +1,13 @@
 /**
- * Suffix array in O(n*logn) and LCP array in O(n)
+ * Suffix array O(n*logn) and LCP array O(n)
  */
 
-// Tweaked from O(n*logn*logn) implementation by mukel
+// http://codeforces.com/blog/entry/4025
+// http://stackoverflow.com/questions/17761704/
 
-#include <vector>
-#include <iostream>
 #include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 namespace SuffixArray {
@@ -54,7 +55,7 @@ namespace SuffixArray {
             if (k)--k;
         }
     }
-} // end namespace SuffixArray
+}
 
 /**
  * Example usage
