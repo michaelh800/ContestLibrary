@@ -31,18 +31,16 @@ namespace PalindromeTree {
         last = to[last][c];
     }
 
-    void buildPT(const string &str, int base = 'a', int sigma = 26) {
+    void buildPT(const string &str, int base='a', int sigma=26) {
         int m = str.length() + 1;
-        s = vector<int>(m), len = link = vector<int>(m+1);
+        s = vector<int>(m);
+        len = link = vector<int>(m+1);
         to = vector<vector<int>>(m+1);
-        for (auto &v : to)
-            v = vector<int>(sigma);
-
-        n = 0;
+        for (auto &v : to) v = vector<int>(sigma);
+        n = 0; sz = 2;
         s[n++] = -1;
         link[0] = 1;
         len[1] = -1;
-        sz = 2;
         for (int i=1; i<m; i++)
             addLetter(str[i - 1] - base);
     }
