@@ -2,9 +2,6 @@
  * Palindrome Tree O(n)
  */
 
-// http://adilet.org/blog/25-09-14/
-// http://ideone.com/YQX9jv
-
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -35,8 +32,7 @@ namespace PalindromeTree {
         int m = str.length() + 1;
         s = vector<int>(m);
         len = link = vector<int>(m+1);
-        to = vector<vector<int>>(m+1);
-        for (auto &v : to) v = vector<int>(sigma);
+        to = vector<vector<int>>(m+1, vector<int>(sigma));
         n = 0; sz = 2;
         s[n++] = -1;
         link[0] = 1;
