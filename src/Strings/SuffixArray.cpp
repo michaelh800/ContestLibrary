@@ -2,9 +2,6 @@
  * Suffix array O(n*logn) and LCP array O(n)
  */
 
-// http://codeforces.com/blog/entry/4025
-// http://stackoverflow.com/questions/17761704/
-
 #include <algorithm>
 #include <iostream>
 #include <vector>
