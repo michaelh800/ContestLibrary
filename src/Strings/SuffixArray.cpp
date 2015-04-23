@@ -2,9 +2,6 @@
  * Suffix array O(n*logn) and LCP array O(n)
  */
 
-// http://codeforces.com/blog/entry/4025
-// http://stackoverflow.com/questions/17761704/
-
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -21,7 +18,7 @@ namespace SuffixArray {
         return (i < N && j < N) ? rank[i] < rank[j] : i > j;
     }
 
-    void radixPass(int g) {
+    void radix_pass(int g) {
         vector<int> b(N), c(K+1);
         for (int i=0; i<N; i++) (sa[i]+g < N) ? c[rank[sa[i]+g]]++ : c[0]++;
         for (int i=0, sum=0; i<=K; i++) {int t = c[i]; c[i] = sum; sum += t; }
@@ -30,7 +27,7 @@ namespace SuffixArray {
         sa = b;
     }
 
-    void buildSA() {
+    void build_sa() {
         N = S.length();
         sa = rank = tmp = lcp = vector<int>(N);
         for (int i=0; i<N; i++) {
@@ -38,7 +35,7 @@ namespace SuffixArray {
             if (rank[i] > K) K = rank[i];
         }
         for (gap = 1;; gap *= 2) {
-            radixPass(gap); radixPass(0);
+            radix_pass(gap); radix_pass(0);
             for (int i=0; i<N-1; i++) tmp[i+1] = tmp[i] + cmp(sa[i], sa[i+1]);
             for (int i=0; i<N; i++) rank[sa[i]] = tmp[i];
             K = tmp[N - 1];
@@ -47,9 +44,9 @@ namespace SuffixArray {
         for (int &r : rank) r--;
     }
 
-    void buildLCP() {
+    void build_lcp() {
         for (int i=0, k=0; i<N; i++) if (rank[i] != N - 1) {
-            for (int j = sa[rank[i] + 1]; S[i + k] == S[j + k];)
+            for (int j = sa[rank[i]+1]; S[i+k] == S[j+k];)
             ++k;
             lcp[rank[i]] = k;
             if (k)--k;
@@ -63,15 +60,15 @@ namespace SuffixArray {
 int main() {
     ios::sync_with_stdio(false);
     SuffixArray::S = "abracadabra0AbRa4Cad14abra";
-    SuffixArray::buildSA();
-    SuffixArray::buildLCP();
+    SuffixArray::build_sa();
+    SuffixArray::build_lcp();
 
-    for (const int &i : SuffixArray::sa) {
+    for (int &i : SuffixArray::sa) {
         cout << i << " ";
     }
     cout << "\n";
 
-    for (const int &i : SuffixArray::lcp) {
+    for (int &i : SuffixArray::lcp) {
         cout << i << " ";
     }
     cout << "\n";

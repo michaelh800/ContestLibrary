@@ -24,16 +24,16 @@ int partition(vector<T> &arr, int lo, int hi) {
 }
 
 template <class T>
-void quickSort(vector<T> &arr, int lo, int hi) {
+void quick_sort(vector<T> &arr, int lo, int hi) {
     if (lo < hi) {
         int p = partition(arr, lo, hi);
-        quickSort(arr, lo, p-1);
-        quickSort(arr, p+1, hi);
+        quick_sort(arr, lo, p-1);
+        quick_sort(arr, p+1, hi);
     }
 }
 
 template <class T>
-void printVector(vector<T> &arr) {
+void print_vector(vector<T> &arr) {
     for (const T &x : arr) {
         cout << x << " ";
     }
@@ -49,12 +49,12 @@ int main() {
     vector<double> t2 = { 1.1, 4, 3.14159, -2.4, -1, 10 };
     vector<char> t3 = { 'B', 'a', 't', 'm', 'a', 'n' };
 
-    quickSort(t1, 0, t1.size()-1);
-    quickSort(t2, 0, t2.size()-1);
-    quickSort(t3, 0, t3.size()-1);
+    quick_sort(t1, 0, t1.size()-1);
+    quick_sort(t2, 0, t2.size()-1);
+    quick_sort(t3, 0, t3.size()-1);
 
-    printVector(t1);
-    printVector(t2);
-    printVector(t3);
+    print_vector(t1);
+    print_vector(t2);
+    print_vector(t3);
     return 0;
 }

@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> buildlcp(string &p) {
+vector<int> build_lcp(string &p) {
     int m = p.length();
     vector<int> lcp(m);
     int i = 1, k = 0;
@@ -27,13 +27,12 @@ vector<int> buildlcp(string &p) {
 
 int kmp(string &s, string &p) {
     int n = s.length(), m = p.length();
-    vector<int> lcp = buildlcp(p);
+    vector<int> lcp = build_lcp(p);
     int i = 0, j = 0, res = 0;
 
     while (i < n) {
         if (s[i] == p[j]) {
-            i++;
-            j++;
+            i++; j++;
             if (j == m) {
                 j = lcp[j-1];
                 res++;

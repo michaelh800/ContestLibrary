@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-long long modExp(long long n, long long exp, long long mod) {
+long long mod_exp(long long n, long long exp, long long mod) {
     long long res = 1;
     while (exp) {
         if (exp % 2 == 1) res = (res * n) % mod;
@@ -21,6 +21,6 @@ long long modExp(long long n, long long exp, long long mod) {
 int main() {
     ios::sync_with_stdio(false);
     long long base = 9688563, exp = 45896, mod = 71;
-    cout << base << " ^ " << exp << " mod " << mod << " = " << modExp(base, exp, mod) << "\n";
+    cout << base << " ^ " << exp << " mod " << mod << " = " << mod_exp(base, exp, mod) << "\n";
     return 0;
 }

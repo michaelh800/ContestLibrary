@@ -49,17 +49,17 @@ void merge(vector<T> &arr, int lo, int mid, int hi) {
 }
 
 template <class T>
-void mergeSort(vector<T> &arr, int lo, int hi) {
+void merge_sort(vector<T> &arr, int lo, int hi) {
     if (lo < hi) {
         int mid = (lo + hi) / 2;
-        mergeSort(arr, lo, mid);
-        mergeSort(arr, mid + 1, hi);
+        merge_sort(arr, lo, mid);
+        merge_sort(arr, mid + 1, hi);
         merge(arr, lo, mid, hi);
     }
 }
 
 template <class T>
-void printVector(vector<T> &arr) {
+void print_vector(vector<T> &arr) {
     for (const T &x : arr) {
         cout << x << " ";
     }
@@ -75,12 +75,12 @@ int main() {
     vector<double> t2 = { 1.1, 4, 3.14159, -2.4, -1, 10 };
     vector<char> t3 = { 'B', 'a', 't', 'm', 'a', 'n' };
 
-    mergeSort(t1, 0, t1.size()-1);
-    mergeSort(t2, 0, t2.size()-1);
-    mergeSort(t3, 0, t3.size()-1);
+    merge_sort(t1, 0, t1.size()-1);
+    merge_sort(t2, 0, t2.size()-1);
+    merge_sort(t3, 0, t3.size()-1);
 
-    printVector(t1);
-    printVector(t2);
-    printVector(t3);
+    print_vector(t1);
+    print_vector(t2);
+    print_vector(t3);
     return 0;
 }
