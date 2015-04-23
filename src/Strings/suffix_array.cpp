@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-namespace SuffixArray {
+namespace suffix_array {
     string S;
     int N, K, gap;
     vector<int> sa, rank, tmp, lcp;
@@ -59,16 +59,16 @@ namespace SuffixArray {
  */
 int main() {
     ios::sync_with_stdio(false);
-    SuffixArray::S = "abracadabra0AbRa4Cad14abra";
-    SuffixArray::build_sa();
-    SuffixArray::build_lcp();
+    suffix_array::S = "abracadabra0AbRa4Cad14abra";
+    suffix_array::build_sa();
+    suffix_array::build_lcp();
 
-    for (int &i : SuffixArray::sa) {
+    for (int &i : suffix_array::sa) {
         cout << i << " ";
     }
     cout << "\n";
 
-    for (int &i : SuffixArray::lcp) {
+    for (int &i : suffix_array::lcp) {
         cout << i << " ";
     }
     cout << "\n";
