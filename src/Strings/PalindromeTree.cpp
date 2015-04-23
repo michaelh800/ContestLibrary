@@ -32,7 +32,6 @@ namespace PalindromeTree {
         int m = str.length() + 1;
         s = vector<int>(m); len = link = vector<int>(m+1);
         to = vector<vector<int>>(m+1, vector<int>(sigma));
-
         n = 0; sz = 2;
         s[n++] = -1; link[0] = 1; len[1] = -1;
         for (int i=1; i<m; i++)
