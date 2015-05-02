@@ -38,16 +38,14 @@ namespace suffix_array {
             radix_pass(gap); radix_pass(0);
             for (int i=0; i<N-1; i++) tmp[i+1] = tmp[i] + cmp(sa[i], sa[i+1]);
             for (int i=0; i<N; i++) rank[sa[i]] = tmp[i];
-            K = tmp[N - 1];
-            if (K == N) break;
+            K = tmp[N - 1]; if (K == N) break;
         }
         for (int &r : rank) r--;
     }
 
     void build_lcp() {
         for (int i=0, k=0; i<N; i++) if (rank[i] != N - 1) {
-            for (int j = sa[rank[i]+1]; S[i+k] == S[j+k];)
-            ++k;
+            for (int j = sa[rank[i]+1]; S[i+k] == S[j+k];) ++k;
             lcp[rank[i]] = k;
             if (k)--k;
         }

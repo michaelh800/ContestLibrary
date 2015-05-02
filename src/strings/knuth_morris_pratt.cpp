@@ -7,42 +7,30 @@
 using namespace std;
 
 vector<int> build_lcp(string &p) {
-    int m = p.length();
+    int k = 0, m = p.length();
     vector<int> lcp(m);
-    int i = 1, k = 0;
 
-    while (i < m) {
-        if (p[k] == p[i]) {
-            lcp[i++] = ++k;
-        }
-        else {
-            if (k)
-                k = lcp[k - 1];
-            else
-                lcp[i++] = 0;
-        }
+    for (int i=1; i<m; i++) {
+        while (k && p[i] != p[k])
+            k = lcp[k-1];
+        if (p[i] == p[k])
+            ++k;
+        lcp[i] = k;
     }
     return lcp;
 }
 
 int kmp(string &s, string &p) {
-    int n = s.length(), m = p.length();
+    int res = 0, n = s.length(), m = p.length();
     vector<int> lcp = build_lcp(p);
-    int i = 0, j = 0, res = 0;
 
-    while (i < n) {
-        if (s[i] == p[j]) {
-            i++; j++;
-            if (j == m) {
-                j = lcp[j-1];
-                res++;
-            }
-        }
-        else if (j > 0) {
-            j = lcp[j];
-        }
-        else {
-            i++;
+    for (int i=0, k=0; i<n; i++) {
+        while(k && p[k] != s[i])
+            k = lcp[k-1];
+        if (p[k] == s[i])
+            ++k;
+        if (k == m) {
+            res++;
         }
     }
     return res;
