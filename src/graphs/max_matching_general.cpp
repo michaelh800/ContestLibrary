@@ -1,5 +1,5 @@
 /**
- * | Maximum matching | for general graphs using blossom-shrink algorithm
+ * Maximum cardinality matching for general graphs using blossom-shrink algorithm
  */
 
 #include <iostream>
@@ -80,7 +80,6 @@ int max_matching() {
     while (augment()) ++res;
     return res;
 }
-
 
 /**
  * Example usage
