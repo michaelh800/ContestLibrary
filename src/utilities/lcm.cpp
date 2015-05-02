@@ -27,6 +27,6 @@ int lcm(vector<int> &arr) {
 int main() {
     ios::sync_with_stdio(0);
     vector<int> tst = { 330, 65, 15, 11, 19 };
-    cout << "The lcm of 330, 65, 15 is " << lcm(tst) << "\n";
+    cout << "The lcm of 330, 65, 15, 19 is " << lcm(tst) << "\n";
     return 0;
 }

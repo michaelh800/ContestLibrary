@@ -29,9 +29,8 @@ int kmp(string &s, string &p) {
             k = lcp[k-1];
         if (p[k] == s[i])
             ++k;
-        if (k == m) {
-            res++;
-        }
+        if (k == m)
+            ++res;
     }
     return res;
 }
