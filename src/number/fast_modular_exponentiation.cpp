@@ -2,7 +2,7 @@
  * Fast modular exponentiation
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
@@ -21,7 +21,6 @@ ll mod_exp(ll n, ll exp, ll mod) {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     ll base = 9688563, exp = 45896, mod = 71;
     cout << base << " ^ " << exp << " mod " << mod << " = " << mod_exp(base, exp, mod) << "\n";
     return 0;

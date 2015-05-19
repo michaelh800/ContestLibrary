@@ -2,9 +2,7 @@
  * Maximum cardinality matching for general graphs using blossom-shrink algorithm
  */
 
-#include <iostream>
-#include <queue>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int N = 1001;
@@ -85,7 +83,6 @@ int max_matching() {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     n = 6;
     edge[0][1] = edge[1][0] = 1;
     edge[0][2] = edge[2][0] = 1;

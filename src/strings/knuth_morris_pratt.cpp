@@ -2,8 +2,7 @@
  * Knuth-Morris-Pratt algorithm for string pattern-matching
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<int> build_lcp(string &p) {
@@ -39,7 +38,6 @@ int kmp(string &s, string &p) {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(false);
     string s = "abababababa";
     string p = "ababa";
     cout << "'" << p << "' occurs in '" << s << "' " << kmp(s, p) << " times\n";

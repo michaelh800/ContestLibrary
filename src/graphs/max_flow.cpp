@@ -2,9 +2,7 @@
  * Max flow using Edmonds-Karp algorithm
  */
 
-#include <iostream>
-#include <climits>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 typedef vector<vector<int>> vvi;
@@ -41,7 +39,6 @@ int max_flow(const vvi &graph, vvi &cap, int s, int t) {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     // make sure to remove self loops and merge multiple edges here
     vvi graph = { { 1, 2 }, { 2 }, { 3 }, {} };
     vvi cap = { { 0, 3, 2, 0 }, { 0, 0, 4, 0 }, { 0, 0, 0, 6 }, { 0, 0, 0, 0 } };

@@ -2,8 +2,7 @@
  * Segment tree with lazy propogation
  */
 
-#include <iostream>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int MAX_N = 50000, MAX_SIZE = 131071; // 2^(ceil(lgn)+1)-1
@@ -61,7 +60,6 @@ int query_tree(int node, int sb, int se, int qb, int qe) {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     // build tree
     int n = 10;
     for (int i=0; i<=n; i++) arr[i] = i;

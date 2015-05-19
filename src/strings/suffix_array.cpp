@@ -2,9 +2,7 @@
  * Suffix array O(n*logn) and LCP array O(n)
  */
 
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 namespace suffix_array {
@@ -56,7 +54,6 @@ namespace suffix_array {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     suffix_array::S = "abracadabra0AbRa4Cad14abra";
     suffix_array::build_sa();
     suffix_array::build_lcp();

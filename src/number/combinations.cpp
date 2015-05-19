@@ -2,7 +2,7 @@
  * Combinations (n choose k) using Pascal's triangle O(n^2)
  */
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 const int MAXN = 1000, MOD = 1e9+7;
@@ -20,7 +20,6 @@ void build_table() {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     build_table();
     cout << "60 choose 9 mod 10^9+7 is " << comb[60][9] << "\n";
     cout << "1000 choose 500 mod 10^9+7 is " << comb[1000][500] << "\n";

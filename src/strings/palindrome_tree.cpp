@@ -2,8 +2,7 @@
  * Palindrome Tree O(n)
  */
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 namespace palindrome_tree {
@@ -40,7 +39,6 @@ namespace palindrome_tree {
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(0);
     string s = "banana";
     palindrome_tree::build_pt(s);
     vector<int> len = palindrome_tree::len;

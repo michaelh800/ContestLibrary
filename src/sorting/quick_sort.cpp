@@ -2,9 +2,7 @@
  * Quick sort
  */
 
-#include <iostream>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 template <class T>
@@ -32,29 +30,13 @@ void quick_sort(vector<T> &arr, int lo, int hi) {
     }
 }
 
-template <class T>
-void print_vector(vector<T> &arr) {
-    for (const T &x : arr) {
-        cout << x << " ";
-    }
-    cout << "\n";
-}
-
 /**
  * Example usage
  */
 int main() {
-    ios::sync_with_stdio(false);
-    vector<int> t1 = { 9, 4, 6, 2, 1, 5, 8, 0, 3, 7 };
-    vector<double> t2 = { 1.1, 4, 3.14159, -2.4, -1, 10 };
-    vector<char> t3 = { 'B', 'a', 't', 'm', 'a', 'n' };
-
-    quick_sort(t1, 0, t1.size()-1);
-    quick_sort(t2, 0, t2.size()-1);
-    quick_sort(t3, 0, t3.size()-1);
-
-    print_vector(t1);
-    print_vector(t2);
-    print_vector(t3);
+    vector<char> arr = { 'B', 'a', 't', 'm', 'a', 'n' };
+    quick_sort(arr, 0, arr.size()-1);
+    for (char c : arr) cout << c << " ";
+    cout << "\n";
     return 0;
 }
