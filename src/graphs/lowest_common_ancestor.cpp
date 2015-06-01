@@ -13,7 +13,7 @@ const int MAXN = 2e5+7, LOGN = 20;
 const int ROOT = 0;
 
 vvi tree;
-int len, tm;
+int len, tim;
 int up[LOGN][MAXN], tin[MAXN], tout[MAXN];
 int color[MAXN];
 
@@ -26,7 +26,7 @@ void dfs(int u, int p) {
         u = s.top().first, p = s.top().second;
         s.pop();
         if (color[u] == 0) {
-            tin[u] = tm++;
+            tin[u] = tim++;
             color[u] = 1;
             s.push(make_pair(u, p));
             up[0][u] = p;
@@ -37,7 +37,7 @@ void dfs(int u, int p) {
                     s.push(make_pair(v, u));
         }
         else if (color[u] == 1) {
-            tout[u] = tm++;
+            tout[u] = tim++;
             color[u] = 2;
         }
     }
