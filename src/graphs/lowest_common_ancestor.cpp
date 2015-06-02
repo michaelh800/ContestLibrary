@@ -7,47 +7,29 @@ using namespace std;
 
 typedef vector<int> vi;
 typedef vector<vi> vvi;
-typedef pair<int, int> pii;
 
 const int MAXN = 2e5+7, LOGN = 20;
-const int ROOT = 0;
 
 vvi tree;
-int len, tim;
+int len, tim, root;
 int up[LOGN][MAXN], tin[MAXN], tout[MAXN];
-int color[MAXN];
 
 void dfs(int u, int p) {
-    memset(color, 0, sizeof color);
-    stack<pii> s;
-    s.push(make_pair(u, p));
-
-    while (!s.empty()) {
-        u = s.top().first, p = s.top().second;
-        s.pop();
-        if (color[u] == 0) {
-            tin[u] = tim++;
-            color[u] = 1;
-            s.push(make_pair(u, p));
-            up[0][u] = p;
-            for (int i = 1; i < len; i++)
-                up[i][u] = up[i - 1][up[i - 1][u]];
-            for (int v : tree[u])
-                if (color[v] == 0)
-                    s.push(make_pair(v, u));
-        }
-        else if (color[u] == 1) {
-            tout[u] = tim++;
-            color[u] = 2;
-        }
-    }
+    tin[u] = tim++;
+    up[0][u] = p;
+    for (int i=1; i<len; i++)
+        up[i][u] = up[i-1][up[i-1][u]];
+    for (int &v : tree[u])
+        if (v != p)
+            dfs(v, u);
+    tout[u] = tim++;
 }
 
 void init() {
     int n = tree.size();
     len = 1;
     while ((1 << len) <= n) ++len;
-    dfs(ROOT, ROOT);
+    dfs(root, root);
 }
 
 bool is_parent(int parent, int child) {
@@ -60,7 +42,7 @@ int lca(int a, int b) {
         return a;
     if (is_parent(b, a))
         return b;
-    for (int i = len - 1; i >= 0; i--)
+    for (int i=len-1; i>=0; i--)
         if (!is_parent(up[i][a], b))
             a = up[i][a];
     return up[0][a];
@@ -72,6 +54,7 @@ int lca(int a, int b) {
 int main() {
     // build tree
     int n = 7;
+    root = 0;
     tree = vvi(n);
     tree[0].push_back(2);
     tree[2].push_back(0);
